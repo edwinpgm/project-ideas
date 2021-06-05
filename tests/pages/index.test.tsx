@@ -1,10 +1,20 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Home from '../../src/pages/index';
 
-test('renders text hello world', () => {
-  const { getByText } = render(<Home />);
-  const text = getByText(/Hello/);
+const POSTS = [
+  {
+    slug: 'title-1',
+    meta: {
+      title: 'Title 1',
+      summary: 'Summary 1',
+    },
+  },
+];
 
-  expect(text).toBeInTheDocument();
+test('renders text hello world', () => {
+  render(<Home posts={POSTS} />);
+  const postTitle = screen.getByText(/Title 1/);
+
+  expect(postTitle).toBeInTheDocument();
 });
