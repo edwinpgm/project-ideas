@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { MDXRemote } from 'next-mdx-remote';
 import { getPost, getFiles } from '@lib/data';
 import { IPost } from '@types';
+import { Layout } from '@components/Layout';
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = await getPost(params.slug as string);
@@ -25,12 +26,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const Post: React.FC<IPost> = ({ meta, source }) => {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <MDXRemote {...source} />
-    </div>
+      <div className="post">
+        <MDXRemote {...source} />
+      </div>
+    </Layout>
   );
 };
 

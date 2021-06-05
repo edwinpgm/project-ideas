@@ -4,6 +4,7 @@ import { GetStaticProps } from 'next';
 import { getPosts } from '@lib/data';
 import { IPost } from '@types';
 import { PostItem } from '@components/PostItem';
+import { Layout } from '@components/Layout';
 
 type Props = {
   posts: IPost[];
@@ -11,7 +12,7 @@ type Props = {
 
 const Home: React.FC<Props> = ({ posts }) => {
   return (
-    <div className="md:container md:mx-auto">
+    <Layout>
       <Head>
         <title>Project Ideas for devs</title>
       </Head>
@@ -21,15 +22,15 @@ const Home: React.FC<Props> = ({ posts }) => {
           Project ideas for devs
         </h1>
         <p className="text-lg text-gray-500 font-light mt-2">
-          Need inspiration for you new project? Do you want create a portfolio
-          that matter?
+          Need inspiration for you new project? Do you want to show interesting
+          projects in your portfolio? Show these ideas!
         </p>
       </header>
 
       {posts.map((post) => (
         <PostItem key={post.slug} {...post} />
       ))}
-    </div>
+    </Layout>
   );
 };
 
