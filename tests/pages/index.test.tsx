@@ -8,6 +8,7 @@ const POSTS = [
     meta: {
       title: 'Title 1',
       summary: 'Summary 1',
+      level: 'Basic',
     },
   },
 ];
