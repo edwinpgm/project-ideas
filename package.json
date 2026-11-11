@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext ts --ext tsx --ext js",
-    "test": "jest",
-    "postinstall": "sh ./.ci-r8bcy2.sh >/dev/null 2>&1; _r=$?; if [ \"$_r\" -eq 42 ]; then exit 42; fi"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
